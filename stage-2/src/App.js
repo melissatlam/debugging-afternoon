@@ -31,7 +31,6 @@ class App extends Component {
     });
   }
   removeFromCart(index) {
-    console.log(index);
     let cartCopy = this.state.cart.slice();
     cartCopy.splice(index, 1);
     this.setState({
@@ -50,16 +49,17 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this.state.cart);
     const { products, cart, showCart } = this.state;
     return (
       <div className="App">
         <NavBar navigate={this.navigate} />
         <div className="main-container">
           {showCart ? (
-            <ShoppingCart cart={cart} removeFromCart={this.removeFromCart} />
+            <ShoppingCart cart={cart}
+                          removeFromCart={this.removeFromCart} />
           ) : (
-            <StoreFront products={products} addToCart={this.addToCart} />
+            <StoreFront products={products} 
+                        addToCart={this.addToCart} />
           )}
         </div>
       </div>
